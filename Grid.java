@@ -9,7 +9,6 @@ public class Grid
     private char [][] grid;
     int curRow=0;
     int curCol=0;
-
     public void gridOne()
     {
         grid = new char[10][25];
@@ -36,10 +35,10 @@ public class Grid
                 grid[4][0] = '-';
                 grid[5][6] = '-';
                 grid[7][5] = '-';
-                grid[8][5] = '-';
-                grid[8][6] = '-';
-                grid[8][7] = '-';
-                grid[8][8] = '-';
+                for(int i=5; i<8; i++)
+                {
+                    grid[8][i] = '-';
+                }
                 grid[7][8] = '-';
                 grid[7][9] = '-';
                 grid[4][6] = '-';
