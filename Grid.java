@@ -23,12 +23,12 @@ public class Grid
                 grid[2][1] = '-';
                 grid[3][1] = '-';
                 grid[3][2] = '-';
-                grid[3][2] = '-';
                 grid[4][2] = '-';
                 grid[4][3] = '-';
-                grid[5][3] = '-';
-                grid[5][4] = '-';
-                grid[5][5] = '-';
+                for(int i =0; i < 8; i++)
+                {
+                    grid[5][i] = '-';
+                }
                 grid[3][0] = '-';
                 grid[6][4] = '-';
                 grid[7][4] = '-';
