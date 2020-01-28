@@ -51,6 +51,8 @@ public class Grid
                 grid[4][14] = '-';
                 grid[4][15] = '-';
                 grid[4][16] = '-';
+                for(int i= 16; i<20; i++)
+                    grid [5][i] = '-';
                 System.out.print(grid[r][c] + " ");
             }
             System.out.println("");
