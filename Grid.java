@@ -28,14 +28,13 @@ public class Grid
                 grid[1][0] = '-';
                 grid[1][1] = '-';
                 grid[2][1] = '-';
-                grid[3][1] = '-';
-                grid[3][2] = '-';
                 grid[4][2] = '-';
                 grid[4][3] = '-';
                 grid[7][7] = '-';
                 for(int i =0; i < 8; i++)
                     grid[5][i] = '-';
-                grid[3][0] = '-';
+                for(int i = 0; i<3; i++)
+                    grid[3][i] = '-';
                 grid[6][4] = '-';
                 grid[7][4] = '-';
                 grid[4][0] = '-';
@@ -43,16 +42,13 @@ public class Grid
                 grid[7][5] = '-';
                 for(int i=5; i<8; i++)
                     grid[8][i] = '-';
-                grid[7][8] = '-';
-                grid[7][9] = '-';
                 grid[4][6] = '-';
                 for(int i = 5; i >0; i--)
                     grid[i][6] = '-';
-                grid[7][10] = '-';
-                grid[7][11] = '-';
-                grid[8][11] = '-';
-                grid[8][12] = '-';
-                grid[8][13] = '-';
+                for(int i = 8; i< 12; i++)
+                    grid[7][i] = '-';
+                for(int i = 11; i< 14; i++)
+                    grid[8][i] = '-';
                 for(int i = 2; i <8; i++)
                     grid[i][13] = '-';
                 grid[4][14] = '-';
@@ -67,18 +63,14 @@ public class Grid
                 grid[9][16] = '-';
                 for(int i = 16; i< 24; i++)
                     grid[9][i] = '-';
+                for(int i = 19; i <23; i++)
+                    grid[7][i] = '-';
                 grid[8][20] = '-';
-                grid[7][20]= '-';
-                grid[7][21]= '-';
-                grid[7][22]= '-';
                 grid[8][22]= '-';
-                grid[2][14] = '-';
-                grid[2][15] = '-';
-                grid[2][16] = '-';
-                grid[1][15]= '-';
-                grid[1][16]= '-';
-                grid[1][17]= '-';
-                grid[1][18] = '-';
+                for(int i = 13; i< 16; i++)
+                    grid[2][i]= '-';
+                for(int i = 15; i<19; i++)
+                    grid[1][i] = '-';
                 grid[2][18] = '-';
                 grid[6][21] = '-';
                 grid[5][21] = '-';
@@ -93,6 +85,18 @@ public class Grid
 
     }
     /**
+     * establishes whether or not the position is at the end of the maze.
+     * @return true if the position is at the end and false it not. 
+     */
+    public boolean atEnd()
+    {
+        if(grid[4][25]== 'o')
+        {
+            return true;
+        }
+        return false;
+    }
+    /**
      * prints out the grid created
      */
     public void printing()
@@ -105,15 +109,16 @@ public class Grid
             System.out.println();
         }
     }
+
     /**
      * returns the numbers of moves made by the user. 
-     * @returns the number of moves the user has made.
+     * @return the number of moves the user has made.
      */
     public int returnMoves()
     {
         return userCount;
     }
-    
+
     /**
      * moves your position right by one space and adds the move to the 
      * counter. If the pathway is blocked to the right, the position remains
@@ -132,7 +137,7 @@ public class Grid
             }
             printing();
         }
-        
+
         System.out.println("total moves: " + userCount);
     }
 
@@ -145,7 +150,7 @@ public class Grid
     {
         if(curRow!=grid.length-1)
         {
-          
+
             if(grid[curRow+1][curCol]=='-')
             {
                 grid[curRow][curCol]='-';
@@ -155,7 +160,7 @@ public class Grid
             }
             printing();
         }
-        
+
         System.out.println("total moves: " + userCount);
 
     }
@@ -171,7 +176,7 @@ public class Grid
         {
             if(grid[curRow][curCol-1]=='*')
             {
-               return;
+                return;
             }
             if(grid [curRow][curCol-1]=='-')
             {
@@ -182,7 +187,7 @@ public class Grid
             }
             printing();
         }
-        
+
         System.out.println("total moves: " + userCount);
 
     }   
@@ -209,10 +214,10 @@ public class Grid
             }
             printing();
         }
-        
+
         System.out.println("total moves: " + userCount);
 
     }
-    
+
 }
 

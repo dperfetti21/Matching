@@ -1,19 +1,23 @@
 import java.util.Scanner;
 /**
- * The Game class provides a grid tempelate with the maze pathway along with 
- * methods to move your position up, down, left, and right and a counter to 
- * keep a tally of total moves. 
+ * The Game class allows users to play the maze game by inputing movements for right, left, up, and down.
  *
  * @author (Willow, Declinda)
  * @version (Jan-Feb 2020)
  */
 public class Game
 {
+    /**
+     * When running, the game uses the user input to move the character up, down, left, or right. 
+     * The screen will clear then print out the moved grid. 
+     */
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
         String userInput = "";
         Grid maze =new Grid();
+        System.out.println("Press 'w' to move up, 's' to move down, 'a' to move left");
+        System.out.println("and 'd' to move right.");
         do
         {
             userInput = in.nextLine();        
@@ -36,8 +40,13 @@ public class Game
                 System.out.print("\f");
                 maze.moveRight();
             }
+            if(maze.atEnd()==true)
+            {
+                System.out.print("\f");
+                System.out.println("YOU WIN!");
+            }
         }
-        while(maze.returnMoves()<50);
+        while(maze.returnMoves()<52);
 
     }
 
