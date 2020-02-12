@@ -1,18 +1,24 @@
-
 /**
- * Write a description of class Grid here.
+ * The Game class provides a grid tempelate with the maze pathway along with 
+ * methods to move your position up, down, left, and right and a counter to 
+ * keep a tally of total moves. 
  *
  * @author (Willow, Declinda)
- * @version (Jan 2020)
+ * @version (Jan-Feb 2020)
  */
 public class Grid
 {
     private char [][] grid;
-    int curRow=0;
+    int curRow=0 ;
     int curCol=0;
-    public void gridOne()
+    private int userCount;
+    /**
+     * creates the tempelate for the grid filled in with its pathway. 
+     */
+    public Grid()
     {
-      grid = new char[10][25];
+        grid = new char[10][25];
+
         for(int r =0; r<grid.length; r++)
         {
             for(int c =0; c < grid[r].length; c++)
@@ -53,43 +59,93 @@ public class Grid
                 grid[4][16] = '-';
                 for(int i= 16; i<20; i++)
                     grid [5][i] = '-';
+                grid[6][17] = '-';
+                grid[7][16] = '-';
+                grid[7][17] = '-';
+                grid[8][16] = '-';
+                grid[9][16] = '-';
+                for(int i = 16; i< 24; i++)
+                    grid[9][i] = '-';
+                grid[8][20] = '-';
+                grid[7][20]= '-';
+                grid[7][21]= '-';
+                grid[7][22]= '-';
+                grid[8][22]= '-';
+                grid[2][14] = '-';
+                grid[2][15] = '-';
+                grid[2][16] = '-';
+                grid[1][15]= '-';
+                grid[1][16]= '-';
+                grid[1][17]= '-';
+                grid[1][18] = '-';
+                grid[2][18] = '-';
+                grid[6][21] = '-';
+                grid[5][21] = '-';
+                grid[4][21] = '-';
+                for(int i = 22; i<25; i++)
+                    grid[4][i] = '-';
                 System.out.print(grid[r][c] + " ");
+
             }
             System.out.println("");
         }
-    }
 
+    }
+    /**
+     * prints out the grid created
+     */
     public void printing()
     {
         for(int r= 0; r< grid.length; r++)
-        {
-            for (int c=0 ;c< grid[r].length;c++)
+        {for (int c=0 ;c< grid[r].length;c++)
             {
                 System.out.print(grid[r][c]+" "); 
             } 
+
             System.out.println();
         }
     }
+    /**
+     * returns the numbers of moves made by the user. 
+     * @returns the number of moves the user has made.
+     */
+    public int returnMoves()
+    {
+        return userCount;
+    }
     
+    /**
+     * moves your position right by one space and adds the move to the 
+     * counter. If the pathway is blocked to the right, the position remains
+     * the same along with the counter. 
+     */
     public void moveRight()
     {
         if(curCol !=grid[0].length)
         {
             if(grid[curRow][curCol+1]=='*')
             {
-              printing();
+                printing();
             }
             if(grid [curRow][curCol+1] =='-')
             {
-             grid[curRow][curCol]='-';
-             grid [curRow][curCol+1]='o';
-             curCol = curCol+1; 
-             printing();
-                
+                grid[curRow][curCol]='-';
+                grid [curRow][curCol+1]='o';
+                curCol = curCol+1; 
+                userCount++;
+                printing();
+
             }
         }
         else printing();
+        System.out.println("total moves: " + userCount);
     }
+
+    /**
+     * moves your position down by one space and adds the move to the 
+     * counter. If the pathway is blocked downwards, the position remains
+     * the same along with the counter. 
+     */
     public void moveDown()
     {
         if(curRow!=grid.length-1)
@@ -100,13 +156,24 @@ public class Grid
             }
             if(grid[curRow+1][curCol]=='-')
             {
-             grid[curRow][curCol]='-';
-             grid [curRow+1][curCol]='o';
-             curRow = curRow+1; 
-             printing();  
+                grid[curRow][curCol]='-';
+                grid [curRow+1][curCol]='o';
+                curRow = curRow+1; 
+                userCount++;
+                printing();
+
             }
         }
+        else printing();
+        System.out.println("total moves: " + userCount);
+
     }
+
+    /**
+     * moves your position left by one space and adds the move to the 
+     * counter. If the pathway is blocked to the left, the position remains
+     * the same along with the counter. 
+     */
     public void moveLeft()
     {
         if(curCol!=0)
@@ -117,14 +184,24 @@ public class Grid
             }
             if(grid [curRow][curCol-1]=='-')
             {
-             grid[curRow][curCol]='-';
-             grid [curRow][curCol-1]='o';
-             curCol = curCol-1; 
-             printing();  
+                grid[curRow][curCol]='-';
+                grid [curRow][curCol-1]='o';
+                curCol = curCol-1; 
+                userCount++;
+                printing(); 
+
             }
         }
-        
-    }
+        else printing();
+        System.out.println("total moves: " + userCount);
+
+    }   
+
+    /**
+     * moves your position up by one space and adds the move to the 
+     * counter. If the pathway is blocked upwards, the position remains
+     * the same along with the counter. 
+     */
     public void moveUp()
     {
         if(curRow!=0)
@@ -135,14 +212,18 @@ public class Grid
             }
             if(grid [curRow-1][curCol]=='-')
             {
-             grid[curRow][curCol]='-';
-             grid [curRow-1][curCol]='o';
-             curRow = curRow-1; 
-             printing();  
+                grid[curRow][curCol]='-';
+                grid [curRow-1][curCol]='o';
+                curRow = curRow-1; 
+                userCount++;
+                printing();
+
             }
         }
-        
+        else printing();
+        System.out.println("total moves: " + userCount);
+
     }
-
-
+    
 }
+
