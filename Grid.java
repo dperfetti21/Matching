@@ -32,6 +32,7 @@ public class Grid
                 grid[3][2] = '-';
                 grid[4][2] = '-';
                 grid[4][3] = '-';
+                grid[7][7] = '-';
                 for(int i =0; i < 8; i++)
                     grid[5][i] = '-';
                 grid[3][0] = '-';
@@ -101,7 +102,6 @@ public class Grid
             {
                 System.out.print(grid[r][c]+" "); 
             } 
-
             System.out.println();
         }
     }
@@ -123,21 +123,16 @@ public class Grid
     {
         if(curCol !=grid[0].length)
         {
-            if(grid[curRow][curCol+1]=='*')
-            {
-                printing();
-            }
             if(grid [curRow][curCol+1] =='-')
             {
                 grid[curRow][curCol]='-';
                 grid [curRow][curCol+1]='o';
                 curCol = curCol+1; 
                 userCount++;
-                printing();
-
             }
+            printing();
         }
-        else printing();
+        
         System.out.println("total moves: " + userCount);
     }
 
@@ -150,21 +145,17 @@ public class Grid
     {
         if(curRow!=grid.length-1)
         {
-            if(grid[curRow+1][curCol]=='*')
-            {
-                printing();
-            }
+          
             if(grid[curRow+1][curCol]=='-')
             {
                 grid[curRow][curCol]='-';
                 grid [curRow+1][curCol]='o';
                 curRow = curRow+1; 
                 userCount++;
-                printing();
-
             }
+            printing();
         }
-        else printing();
+        
         System.out.println("total moves: " + userCount);
 
     }
@@ -180,7 +171,7 @@ public class Grid
         {
             if(grid[curRow][curCol-1]=='*')
             {
-                printing();
+               return;
             }
             if(grid [curRow][curCol-1]=='-')
             {
@@ -188,11 +179,10 @@ public class Grid
                 grid [curRow][curCol-1]='o';
                 curCol = curCol-1; 
                 userCount++;
-                printing(); 
-
             }
+            printing();
         }
-        else printing();
+        
         System.out.println("total moves: " + userCount);
 
     }   
@@ -208,7 +198,7 @@ public class Grid
         {
             if(grid[curRow-1][curCol]=='*')
             {
-                printing();
+                return;
             }
             if(grid [curRow-1][curCol]=='-')
             {
@@ -216,11 +206,10 @@ public class Grid
                 grid [curRow-1][curCol]='o';
                 curRow = curRow-1; 
                 userCount++;
-                printing();
-
             }
+            printing();
         }
-        else printing();
+        
         System.out.println("total moves: " + userCount);
 
     }

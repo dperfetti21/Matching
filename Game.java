@@ -18,13 +18,24 @@ public class Game
         {
             userInput = in.nextLine();        
             if ("w".equals(userInput))
+            {   System.out.print("\f");
                 maze.moveUp();
+            }
             else if ("s".equals(userInput))
+            {
+                System.out.print("\f");
                 maze.moveDown();
+            }
             else if ("a".equals(userInput))
+            {
+                System.out.print("\f");
                 maze.moveLeft();
+            }
             else if ("d".equals(userInput))
+            {
+                System.out.print("\f");
                 maze.moveRight();
+            }
         }
         while(maze.returnMoves()<50);
 
