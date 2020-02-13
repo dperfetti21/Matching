@@ -75,8 +75,9 @@ public class Grid
                 grid[6][21] = '-';
                 grid[5][21] = '-';
                 grid[4][21] = '-';
-                for(int i = 22; i<25; i++)
+                for(int i = 22; i<24; i++)
                     grid[4][i] = '-';
+                grid[4][24] = 'x';
                 System.out.print(grid[r][c] + " ");
 
             }
@@ -127,27 +128,33 @@ public class Grid
      * to the right, the position remains the same along with the counter. 
      */
     public void moveRight()
-    {
-        {
 
-            if(curCol !=grid[0].length)
+    {
+        if(curCol == grid[0].length)
+            printing();
+
+        if(curCol !=grid[0].length)
+        {
+            if(grid[curRow][curCol+1] =='-' || grid[curRow][curCol+1] == 'x')
             {
-                if(grid [curRow][curCol+1] =='-')
-                {
-                    grid[curRow][curCol]='-';
-                    grid [curRow][curCol+1]='o';
-                    curCol = curCol+1; 
-                    userCount++;
-                    totalMoves --;
-                }
-                    
-                printing();
+                grid[curRow][curCol]='-';
+                grid [curRow][curCol+1]='o';
+                curCol = curCol+1; 
+                userCount++;
+                totalMoves--;
             }
+            //if(grid[curRow][curCol+1]=='x')
+            //{
+              //  grid[curRow][curCol+1]='o';
+              //  grid[curRow][curCol]='-';
+              //  userCount++;
+              //  totalMoves--;
+           // }
+            printing();
 
             System.out.println("total moves: " + userCount);
             System.out.println("moves left: " + totalMoves);
         }
-
     }
 
     /**
@@ -157,20 +164,20 @@ public class Grid
     public void moveDown()
     {
         {
+            if(curRow== grid.length-1)
+                printing();
             if(curRow!=grid.length-1)
-            {
-
+            {    
                 if(grid[curRow+1][curCol]=='-')
                 {
                     grid[curRow][curCol]='-';
                     grid [curRow+1][curCol]='o';
                     curRow = curRow+1; 
                     userCount++;
-                    totalMoves --;
+                    totalMoves--;
                 }
                 printing();
             }
-
             System.out.println("total moves: " + userCount);
             System.out.println("moves left: " + totalMoves);
         }
@@ -183,11 +190,13 @@ public class Grid
     public void moveLeft()
     {
         {
+            if(curCol==0)
+                printing();
             if(curCol!=0)
             {
                 if(grid[curRow][curCol-1]=='*')
                 {
-                    return;
+
                 }
                 if(grid [curRow][curCol-1]=='-')
                 {
@@ -195,39 +204,10 @@ public class Grid
                     grid [curRow][curCol-1]='o';
                     curCol = curCol-1; 
                     userCount++;
-                    totalMoves --;
-                }
-                    
-                printing();
-            }
-
-            System.out.println("total moves: " + userCount);
-            System.out.println("moves left: " + totalMoves);
-        }   
-
-    }   
-    /**
-     * moves your position up by one space and adds one to the counter. If the pathway is blocked 
-     * upwards, the position remains the same along with the counter. 
-     */
-    public void moveUp()
-    {
-        {
-            if(curRow!=0)
-            {
-                if(grid[curRow-1][curCol]=='*')
-                {
-                    return;
-                }
-                if(grid [curRow-1][curCol]=='-')
-                {
-                    grid[curRow][curCol]='-';
-                    grid [curRow-1][curCol]='o';
-                    curRow = curRow-1; 
-                    userCount++;
                     totalMoves--;
                 }
                 printing();
+
             }
 
             System.out.println("total moves: " + userCount);
@@ -235,5 +215,36 @@ public class Grid
         }
     }
 
+    /**
+     * moves your position up by one space and adds the move to the 
+     * counter. If the pathway is blocked upwards, the position remains
+     * the same along with the counter. 
+     */
+    public void moveUp()
+    {
+        if(curRow==0)
+            printing();
+        else
+        {
+
+            if(grid[curRow-1][curCol]=='*')
+            {
+
+            }
+            if(grid [curRow-1][curCol]=='-')
+            {
+                grid[curRow][curCol]='-';
+                grid [curRow-1][curCol]='o';
+                curRow = curRow-1; 
+                userCount++;
+                totalMoves--;
+            }
+            printing();
+
+            System.out.println("total moves: " + userCount);
+            System.out.println("moves left: " + totalMoves);
+        }
+
+    }
 }
 

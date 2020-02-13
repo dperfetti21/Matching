@@ -47,8 +47,9 @@ public class Game
             }
             
         }
-        while(maze.returnMoves()<52);
-        if(maze.returnMoves() == 52)
+        while(maze.returnMoves()<51);
+        
+        if(maze.returnMoves() == 51)
             System.out.println("You Lost :(");
     }
 
