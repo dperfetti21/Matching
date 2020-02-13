@@ -9,7 +9,7 @@ public class Game
 {
     /**
      * When running, the game uses the user input to move the character up, down, left, or right. 
-     * The screen will clear then print out the moved grid. 
+     * The screen will clear then print out the moved grid along with the number of moves used and left.
      */
     public static void main(String[] args)
     {
@@ -45,13 +45,11 @@ public class Game
                 System.out.print("\f");
                 System.out.println("YOU WIN!");
             }
-            if(maze.returnMoves() > 52)
-            {
-                System.out.println("You Lost :(");
-            }
+            
         }
         while(maze.returnMoves()<52);
-
+        if(maze.returnMoves() == 52)
+            System.out.println("You Lost :(");
     }
 
     
