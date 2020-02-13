@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /**
- * The Game class allows users to play the maze game by inputing movements for right, left, up, and down.
+ * The Game class allows users to play the maze game by inputting movements for right, left, up, and down.
  *
  * @author (Willow, Declinda)
  * @version (Jan-Feb 2020)
@@ -40,10 +40,14 @@ public class Game
                 System.out.print("\f");
                 maze.moveRight();
             }
-            if(maze.atEnd()==true)
+            if(maze.atEnd())
             {
                 System.out.print("\f");
                 System.out.println("YOU WIN!");
+            }
+            if(maze.returnMoves() > 52)
+            {
+                System.out.println("You Lost :(");
             }
         }
         while(maze.returnMoves()<52);

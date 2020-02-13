@@ -1,5 +1,5 @@
 /**
- * The Game class provides a grid tempelate with the maze pathway along with 
+ * The Game class provides a grid template with the maze pathway along with 
  * methods to move your position up, down, left, and right and a counter to 
  * keep a tally of total moves. 
  *
@@ -90,7 +90,7 @@ public class Grid
      */
     public boolean atEnd()
     {
-        if(grid[4][25]== 'o')
+        if(grid[4][24] == 'o')
         {
             return true;
         }
