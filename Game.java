@@ -45,13 +45,12 @@ public class Game
                 System.out.print("\f");
                 System.out.println("YOU WIN!");
             }
-            
+
         }
         while(maze.returnMoves()<51);
-        
+
         if(maze.returnMoves() == 51)
             System.out.println("You Lost :(");
-    }
 
-    
+    }
 }
