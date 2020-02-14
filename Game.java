@@ -17,7 +17,7 @@ public class Game
         String userInput = "";
         Grid maze =new Grid();
         System.out.println("Press 'w' to move up, 's' to move down, 'a' to move left");
-        System.out.println("and 'd' to move right.");
+        System.out.println("and 'd' to move right. Your goal is to reach the 'x'.");
         do
         {
             userInput = in.nextLine();        
