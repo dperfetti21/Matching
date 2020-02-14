@@ -143,13 +143,6 @@ public class Grid
                 userCount++;
                 totalMoves--;
             }
-            //if(grid[curRow][curCol+1]=='x')
-            //{
-              //  grid[curRow][curCol+1]='o';
-              //  grid[curRow][curCol]='-';
-              //  userCount++;
-              //  totalMoves--;
-           // }
             printing();
 
             System.out.println("total moves: " + userCount);
